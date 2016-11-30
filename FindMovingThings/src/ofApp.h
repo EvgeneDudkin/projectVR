@@ -26,15 +26,10 @@ class ofApp : public ofBaseApp{
 
 		ofxCvColorImage			colorImg;
 
-		static const int		MAX_CAM_CADR = 15;
-		int						currentCount;
-		ofxCvColorImage			backgroundImages[MAX_CAM_CADR];
-		float					*middleValues;
+		ofxCvColorImage			backgroundImage;
+		ofPixels				middleValues;
 		ofxCvColorImage			colorDiff;
 		ofPixels				bufferArr; 
-
-		void transformArray(ofPixels& pixels);
-		void countMiddleValues();
 
 		ofxCvGrayscaleImage 	grayImage;
 		ofxCvGrayscaleImage 	grayBg;
@@ -42,7 +37,7 @@ class ofApp : public ofBaseApp{
 
 		ofxCvContourFinder 	contourFinder;
 
-		static const int threshold = 30;
+		static const int threshold = 60;
 		static const int step = 5;
 		bool bLearnBakground;
 
