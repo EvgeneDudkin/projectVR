@@ -24,10 +24,14 @@ class ofApp : public ofBaseApp{
 
 		ofVideoGrabber vidGrabber;
 
+		static const int MAX_CAM_CADR = 30;
+		int cadrsCount = 0;
 		ofxCvColorImage			colorImg;
 
 		ofxCvColorImage			backgroundImage;
 		ofPixels				middleValues;
+		void					countMiddleValues();
+		ofPixels				backgroundImages[MAX_CAM_CADR];
 		ofxCvColorImage			colorDiff;
 		ofPixels				bufferArr; 
 
@@ -37,11 +41,16 @@ class ofApp : public ofBaseApp{
 
 		ofxCvContourFinder 	contourFinder;
 
-		static const int threshold = 60;
+		static const int threshold = 70;
 		static const int step = 5;
-		bool bLearnBakground;
+		bool bLearnBackground;
 
 		int camWidth;
 		int camHeight;
+
+		int *bitMask;
+		int *bitMaskStep;
+
+		int colorDiffPosX, colorDiffPosY;
 		
 };
